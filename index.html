@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validations</title>
+    <link rel="stylesheet" href="static/scss/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form_container">
+            <form action = "#" id="form">
+                <div class="form_input">
+                    <label for="username">Username</label>
+                    <input type="text" name = "username" placeholder="Enter your username" id="username">
+                    <div class="error"></div>
+                </div>
+
+                <div class="form_input">
+                    <label for="email">Email</label>
+                    <input type="text" name = "email" placeholder="Enter your email" id="email">
+                    <div class="error"></div>
+                </div>
+
+                <div class="form_input">
+                    <label for="password">Password</label>
+                    <input type="text" name = "password" placeholder="Enter your password" id="password">
+                    <div class="error"></div>
+                </div>
+
+                <div class="form_input">
+                    <label for="conf_password">Confirm Password</label>
+                    <input type="text"  name = "conf_password" placeholder="Confirm Password" id="conf_password">
+                    <div class="error"></div>
+                </div>
+
+                <button id="submit_btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

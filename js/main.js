@@ -1,0 +1,88 @@
+const formElement = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+
+
+const confirmPassword = document.getElementById('conf_password');
+
+formElement.addEventListener('submit', (e) => {
+    e.preventDefault();     
+    validateForm();
+  
+
+});
+
+const setError = (element, message) => {
+    console.log("ddd",element)
+    const inputControl = element.parentElement;
+    
+    
+    const errorDisplay = inputControl.querySelector('.error');
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success');
+};
+
+const setSuccess = (element) => {
+
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+        errorDisplay.innerText ='';
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
+};
+
+const isValidEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return re.test(String(email).toLocaleLowerCase());
+};
+
+const validateForm = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const conf_passwordValue = confirmPassword.value.trim();
+
+    if(usernameValue === ''){
+        setError(username,"Username is required");
+    }
+    else{
+        setSuccess(username);
+    };
+
+
+    if(emailValue === ''){
+        setError(email,"Email is required");
+    }
+    else if(!isValidEmail(emailValue)){
+        setError(email,"Email is invalid");
+    }
+    else{
+        setSuccess(email);
+    };
+
+    if(passwordValue === ''){
+        setError(password,"Password is required");
+    }
+    else{
+        setSuccess(password);
+    };
+
+    if(conf_passwordValue === ''){
+        setError(confirmPassword,"Confirm Password is required");
+    }
+    else if(conf_passwordValue !== passwordValue) {
+        setError(confirmPassword,"Password is not match");
+    }
+    else{
+        setSuccess(confirmPassword);
+    };
+    
+}
+
+
+
+
+
